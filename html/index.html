@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>short-story</title>
+    <style>
+        h1{
+            color: green;
+            text-align: center;
+        }
+        p{
+            width: 40%;
+            margin: 2em 0 0 30%;
+        }
+        button{
+            background-color: green;
+            color: white;
+            padding: 1em;
+            border-radius: 5px;
+            border: none;
+            margin: 1em 0 0 30%;
+        }
+        button:hover{
+            background-color: blue;
+            cursor: pointer;
+        }
+        .hideImages{
+            margin-left: 24.5%;
+        }
+        img{
+            width: 10em;
+            height: 15em;
+        }
+        #imageDiv{
+            margin: 2em 0 0 7%;
+            width: fit-content;
+            height: fit-content;
+            /* border: 2px dotted blue; */
+            border-top: 2px;
+            border-left: 2px;
+            border-bottom: 2px;
+            border-right: 2px;
+            border-style: dotted;
+            border-color: blue;
+            padding: 1em;
+        }
+        select{
+            position: absolute;
+            top: 2.5em;
+            right: 30%;
+            border: 2px solid green;
+            padding: .5em;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>My Short Story</h1>
+        <select name="stories" class="stories">
+            <option value="introduction">introduction</option>
+            <option value="training">training</option>
+            <option value="school">school</option>
+            <option value="church">church</option>
+        </select>
+        <p>
+        </p>
+
+        <button class="SeeImages">See Images</button>
+        <button class="hideImages">Hide Images</button>
+
+        <div id="imageDiv">
+            <img src="../img/AGHIDI EMMANUEL UKIOSEWA.jpg" alt="AGHIDI EMMANUEL UKIOSEWA">
+            <img src="../img/OKOCHA PHILIP OLISAELOKA.jpg" alt="OKOCHA PHILIP OLISAELOKA">
+            <img src="../img/OKOIHUE DAVID ABUNENE.jpg" alt="OKOIHUE DAVID ABUNENE">
+            <img src="../img/OKONEDO EMMANUEL AVWEROSUOGHENE.jpg" alt="OKONEDO EMMANUEL AVWEROSUOGHENE">
+            <img src="../img/priest.png" alt="priest">
+            <img src="../img/UDUMEBRAYE KELVIN OGHENEGUEKE.jpg" alt="UDUMEBRAYE KELVIN OGHENEGUEKE">
+            <img src="../img/YAYI FELIX OLATUNJI.jpg" alt="YAYI FELIX OLATUNJI">
+        </div>
+    </div>
+
+    <script>
+        let seeImages = document.querySelector('.SeeImages');
+        let hideImages = document.querySelector('.hideImages');
+        let imageDiv = document.getElementById('imageDiv');
+        let storiesSelect = document.querySelector('.stories');
+        let paragraph = document.querySelector('p')
+        let introductionStory = 'I go by the name Dubem. I am tall in height, chocolate in complexion and hairy.\
+        I reside at Igbogene-Epie Bayelsa State. I am an IT personell, a chrisian and an Igbo \
+        man my Hobbies are playing football,reading and hanging out with friends. \
+        I love meeting new people and I look forward to that everyday'
+
+        let trainingStory = 'I was astudent of front end web development in the year 2020. I was instructed by \
+        Sir John. I learnt the basics of vanilla development in the space of 1 year and further developed my competence \
+        in the use of frameworks. I am currently the instructorr of front end web development at IO spine ICT solutions \
+        and academy here in Agudama in Baayelsa state.'
+
+        function changeStory() {
+            let selectVAlue = storiesSelect.value
+            console.log(selectVAlue)
+            if(selectVAlue === 'introduction'){
+                paragraph.innerText = introductionStory;
+            }
+            else if(selectVAlue === 'training'){
+                paragraph.innerText = trainingStory
+            }
+
+        } 
+
+        changeStory();
+
+        storiesSelect.addEventListener('change',changeStory)
+
+        seeImages.addEventListener('click', function(ev){
+            imageDiv.style.visibility = 'visible'
+        });
+
+        hideImages.addEventListener('click', function(ev){
+            imageDiv.style.visibility = 'hidden';
+        })
+    </script>
+</body>
+</html>
